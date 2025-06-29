@@ -1,11 +1,21 @@
 {
-  "$schema": "https://railway.app/railway.schema.json",
+  "name": "GoHighLevel-MCP",
+  "plugins": ["node"],
   "build": {
-    "builder": "NIXPACKS"
+    "env": {
+      "NODE_ENV": "production"
+    }
   },
   "deploy": {
-    "startCommand": "npm start",
-    "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 10
+    "startCommand": "npx ts-node src/index.ts",
+    "buildCommand": "npm install"
+  },
+  "envVars": {
+    "GHL_PRIVATE_TOKEN": {
+      "required": true
+    },
+    "GHL_LOCATION_ID": {
+      "required": false
+    }
   }
-} 
+}
