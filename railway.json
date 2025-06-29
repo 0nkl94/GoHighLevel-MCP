@@ -7,8 +7,8 @@
     }
   },
   "deploy": {
-    "startCommand": "npx ts-node src/index.ts",
-    "buildCommand": "npm install"
+    "buildCommand": "npm install --include=dev && npm run build",
+    "startCommand": "node dist/http-server.js"
   },
   "envVars": {
     "GHL_PRIVATE_TOKEN": {
